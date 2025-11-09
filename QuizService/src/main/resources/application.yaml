@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: QuizService
+  datasource:
+    url: jdbc:mysql://localhost:3306/micro_quiz
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+server.port: 8081
