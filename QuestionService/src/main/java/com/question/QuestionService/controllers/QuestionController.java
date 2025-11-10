@@ -1,4 +1,4 @@
-package com.question.QuestionService.controller;
+package com.question.QuestionService.controllers;
 
 import java.util.List;
 import com.question.QuestionService.entities.Question;
@@ -25,8 +25,13 @@ public class QuestionController {
         return questionService.get();
     }
 
-    @GetMapping("/{id}")
-    public Question get(@PathVariable Long id) {
-        return questionService.get(id);
+    @GetMapping("/{questionId}")
+    public Question get(@PathVariable Long questionId) {
+        return questionService.get(questionId);
+    }
+
+    @GetMapping("/quizzes/{quizId}")
+    public List<Question> getQuestionsOfQuiz(@PathVariable Long quizId) {
+        return questionService.getQuestionsOfQuiz(quizId);
     }
 }
