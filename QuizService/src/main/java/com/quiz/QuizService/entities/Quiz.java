@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -19,4 +21,8 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+
+    // we are declaring it transient becasue we don't want to save
+    // this in db.
+    transient private List<Question> questions;
 }
