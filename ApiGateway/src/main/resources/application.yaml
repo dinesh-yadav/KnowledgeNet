@@ -1,3 +1,17 @@
 spring:
   application:
     name: ApiGateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: QUIZSERVICE
+              uri: lb://quizservice
+              predicates:
+                - Path=/quizzes/**
+            - id: QUESTIONSERVICE
+              uri: lb://QUESTIONSERVICE
+              predicates:
+                - Path=/questions/**
+server.port: 8083
